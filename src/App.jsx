@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './app.css' 
 
 const App = () => {
   const [team, setTeam] = useState([]);
@@ -110,39 +111,35 @@ const App = () => {
       {team.length === 0 ? (
           <p>Pick some team members!</p>
         ) : (
-          <div className="fighter-container">
-            {team.map((member, i) => (
-              <div className="fighterInfo" key={i}>
-                <img src={member.img} alt={member.name} />
-                <ul>
-                  <li>Name: {member.name}</li>
-                  <li>Price: {member.price}</li>
-                  <li>Strength Level: {member.strength}</li>
-                  <li>Agility Level: {member.agility}</li>
-                </ul>
-                <button id="addFighter" onClick={() => handleRemoveFighter(member)}>Remove from Team</button>
-              </div>
-            ))}
-          </div>
+        <ul>
+          {team.map((member, i) =>(
+            <li className="fighterInfo" key={i}>
+              <img src={member.img} alt={member.name}/>
+              <p>Name: {member.name}</p>
+              <p>Price: {member.price}</p>
+              <p>Strength Level: {member.strength}</p>
+              <p>Agility Level: {member.agility}</p>
+            <button id="addFighter" onClick={() => handleRemoveFighter(member)}>Remove from team</button>
+            </li>
+          ))}
+        </ul> 
         )}
       </div>
     </div>
     <div>
       <h2>OPTIONS</h2>
-      <div className="fighterContainer">
-        {zombieFighters.map((fighter, i) =>(
-          <div className="fighterInfo" key={i}>
-            <img src={fighter.img} alt={fighter.name}/>
-            <ul>
-              <li>Name: {fighter.name}</li>
-              <li>Price: {fighter.price}</li>
-              <li>Strength Level: {fighter.strength}</li>
-              <li>Agility Level: {fighter.agility}</li>
-            </ul>
+        <ul>
+          {zombieFighters.map((fighter, i) =>(
+            <li className="fighterInfo" key={i}>
+              <img src={fighter.img} alt={fighter.name}/>
+              <p>Name: {fighter.name}</p>
+              <p>Price: {fighter.price}</p>
+              <p>Strength Level: {fighter.strength}</p>
+              <p>Agility Level: {fighter.agility}</p>
             <button id="addFighter" onClick={() => handleAddFighter(fighter)}>Add to Team</button>
-          </div>
-        ))}
-      </div>  
+            </li>
+          ))}
+        </ul> 
     </div>
     <div>
       <h2></h2>
